@@ -1,0 +1,52 @@
+
+Host Name:                 GEORGESALAYC7D9
+OS Name:                   Microsoft Windows 11 Home
+OS Version:                10.0.22000 N/A Build 22000
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Registered Owner:          George Salayka
+Registered Organization:   
+Product ID:                00326-10000-00000-AA273
+Original Install Date:     7/27/2022, 11:41:04 PM
+System Boot Time:          2/7/2023, 9:14:20 AM
+System Manufacturer:       Parallels International GmbH.
+System Model:              Parallels ARM Virtual Machine
+System Type:               ARM64-based PC
+Processor(s):              4 Processor(s) Installed.
+                           [01]: ARMv8 (64-bit) Family 8 Model 0 Revision   0   ~3200 Mhz
+                           [02]: ARMv8 (64-bit) Family 8 Model 0 Revision   0   ~3200 Mhz
+                           [03]: ARMv8 (64-bit) Family 8 Model 0 Revision   0   ~3200 Mhz
+                           [04]: ARMv8 (64-bit) Family 8 Model 0 Revision   0   ~3200 Mhz
+BIOS Version:              Parallels International GmbH. 18.1.1 (53328), 1/1/1601
+Windows Directory:         C:\Windows
+System Directory:          C:\Windows\system32
+Boot Device:               \Device\HarddiskVolume2
+System Locale:             en-us;English (United States)
+Input Locale:              en-us;English (United States)
+Time Zone:                 (UTC-05:00) Indiana (East)
+Total Physical Memory:     8,187 MB
+Available Physical Memory: 5,046 MB
+Virtual Memory: Max Size:  9,467 MB
+Virtual Memory: Available: 6,427 MB
+Virtual Memory: In Use:    3,040 MB
+Page File Location(s):     C:\pagefile.sys
+Domain:                    WORKGROUP
+Logon Server:              \\GEORGESALAYC7D9
+Hotfix(s):                 5 Hotfix(s) Installed.
+                           [01]: KB5020875
+                           [02]: KB5012170
+                           [03]: KB5022287
+                           [04]: KB5017850
+                           [05]: KB5019385
+Network Card(s):           1 NIC(s) Installed.
+                           [01]: Parallels VirtIO Ethernet Adapter
+                                 Connection Name: Ethernet
+                                 DHCP Enabled:    Yes
+                                 DHCP Server:     10.211.55.1
+                                 IP address(es)
+                                 [01]: 10.211.55.3
+                                 [02]: fe80::ef8c:2844:a4c9:fccd
+                                 [03]: fdb2:2c26:f4e4:0:d985:1334:8b7b:5e59
+                                 [04]: fdb2:2c26:f4e4:0:701b:11da:a003:f09a
+Hyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed.
