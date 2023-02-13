@@ -4,7 +4,7 @@ session_start();
 
 // Include config file
 require_once "Database.php";
-
+$pdo = getDB();
 // Define variables and initialize with empty values
 $new_password = $confirm_password = "";
 $new_password_err = $confirm_password_err = "";
