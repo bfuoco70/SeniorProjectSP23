@@ -1,6 +1,7 @@
 <?php
 // Include config file
 require_once "Database.php";
+$pdo=getDB();
 
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
@@ -16,14 +17,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Username can only contain letters, numbers, and underscores.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = :username";
+        $sql = "SELECT U_id FROM Users WHERE Username = :username";
 
         if($stmt = $pdo->prepare($sql)){
             // Bind variables to the prepared statement as parameters
+            $param_username = trim($_POST["username"]);
             $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
 
             // Set parameters
-            $param_username = trim($_POST["username"]);
 
             // Attempt to execute the prepared statement
             if($stmt->execute()){
@@ -64,16 +65,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
 
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+        $sql = "INSERT INTO Users (Username, Password) VALUES (:username, :password)";
 
         if($stmt = $pdo->prepare($sql)){
             // Bind variables to the prepared statement as parameters
-            $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
-            $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
-
             // Set parameters
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+
+            $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
+            $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
+
+
 
             // Attempt to execute the prepared statement
             if($stmt->execute()){

@@ -10,6 +10,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
 // Include config file
 require_once "Database.php";
+$pdo = getDB();
 
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -35,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password, is_admin FROM users WHERE username = :username";
+        $sql = "SELECT U_id, Username, Password FROM users WHERE Username = :username";
 
         if($stmt = $pdo->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -52,7 +53,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $id = $row["id"];
                         $username = $row["username"];
                         $hashed_password = $row["password"];
-                        $admin_status = $row["is_admin"];
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
                             session_start();
@@ -61,10 +61,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
-                            $_SESSION["is_admin"] = $admin_status;
+
 
                             // Redirect user to welcome page
-                            header("location: welcome.php");
+                            header("location: home.php");
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";

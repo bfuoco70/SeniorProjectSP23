@@ -2,12 +2,6 @@
 // Initialize the session
 session_start();
 
-// Check if the user is logged in, otherwise redirect to login page
-//if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-//    header("location: login.php");
-//    exit;
-//}
-
 // Include config file
 require_once "Database.php";
 
@@ -74,7 +68,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="images/V-Travelers-Icon.png">
     <meta charset="UTF-8">
     <title>Reset Password</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -82,9 +75,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
 <span class="header">
-<h1><b>Welcome to <u>V-Travel</u></b></h1>
+<h1><b>Welcome to <u>PE Injection, A site focused on simplified code injection</u></b></h1>
 </span>
-<img src="images/Header-Logo-White.jpeg" class="image">
 <div class="wrapper">
     <h2>Reset Password</h2>
     <p>Please fill out this form to reset your password.</p>
