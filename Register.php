@@ -103,11 +103,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Register with Us!!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="Register.css">
 </head>
 <body>
 <span class="header">
-<h1><b>Welcome to <u>PE Injection, A site focused on simplified code injection</u></b></h1>
+<h1 class="Title">Welcome to PE Injection</h1>
+    <h1 class="Title">A Site Focused on Simplified Code Injection</h1>
 </span>
 <div class="wrapper">
     <h2>Sign Up</h2>
@@ -130,7 +131,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Submit">
-            <input type="reset" class="btn btn-secondary ml-2" value="Reset">
         </div>
         <p>Already have an account? <a href="Login.php">Login here</a>.</p>
     </form>

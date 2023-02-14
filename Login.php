@@ -92,14 +92,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="icon" href="">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>PE Injection Login</title>
     <link rel="stylesheet" href="Login.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 <body>
 <span class="header">
-<h1><b>Welcome to PE Injection, A site focused on simplified code injection <u></u></b></h1>
+<h1 class="Title">Welcome to PE Injection</h1>
+    <h1 class="Title">A Site Focused on Simplified Code Injection</h1>
 </span>
 <div class="wrapper">
     <h2>Login</h2>
@@ -111,7 +112,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     ?>
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?><!--" method="post">-->
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?><!--" method="post">
         <div class="form-group">
             <label>Username</label>
             <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
@@ -123,9 +124,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <span class="invalid-feedback"><?php echo $password_err; ?></span>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Login">
+            <input type="submit" class="btn btn-primary" value="Sign in">
         </div>
         <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+        <p>Forgot Password? <a href="reset.php">Reset Here</a>.</p>
     </form>
 </div>
 </body>

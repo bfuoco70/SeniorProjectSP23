@@ -1,7 +1,7 @@
 <?php
 // Initialize the session
 session_start();
-$pdo = getDB();
+
 // Unset all of the session variables
 $_SESSION = array();
 

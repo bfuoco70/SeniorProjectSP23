@@ -32,14 +32,19 @@ echo "Username not found in the database.";
 
 <html>
 <head>
-    <title>Reset Password</title>
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title class="Title">Reset Password</title>
 </head>
 <body>
-<h1>Reset Password</h1>
-<form action="" method="post">
+<h1 class="Title">Reset Password</h1>
+<div class="wrapper"
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?><!--" method="post"" method="post">
+    <p>Please enter your username:</p>
     <label for="username">Username:</label>
     <input type="text" name="username" id="username">
-    <input type="submit" name="submit" value="Submit">
+    <input type="submit" name="submit" value="Submit" id="submit">
 </form>
 </body>
 </html>

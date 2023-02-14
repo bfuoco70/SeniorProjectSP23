@@ -1,0 +1,52 @@
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab,#00DBCE);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.Title{
+    font-size:40px;
+    text-align: center;
+    font-family: "Comic Sans MS";
+    font-weight: bolder;
+    color: white;
+    padding-top: 200px;
+}
+
+.wrapper{
+    border: 5px solid black;
+    color: black;
+    background-color: white;
+    width: 600px;
+    height: 120px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 100px;
+    border-radius: 32px;
+    margin-left:auto;
+    margin-right: auto;
+    font-family: "Comic Sans MS";
+}
+
+#username{
+    width: 400px;
+}
+#submit{
+    padding-left: 10px;
+}
+
