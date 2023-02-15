@@ -1,7 +1,4 @@
-
-
 <?php
-#We are working on this file
 require_once "Database.php";
 
 //try {
