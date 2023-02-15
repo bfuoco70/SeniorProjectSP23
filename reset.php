@@ -1,15 +1,6 @@
-
-
 <?php
-#We are working on this file
 require_once "Database.php";
 
-//try {
-//$conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-//$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//} catch(PDOException $e) {
-//echo "Error: " . $e->getMessage();
-//}
 $conn=getDB();
 // Check if the form has been submitted
 if (isset($_POST['submit'])) {
@@ -17,7 +8,7 @@ if (isset($_POST['submit'])) {
 $user = $_POST['username'];
 
 // Check if the username exists in the database
-$query = $conn->prepare("SELECT * FROM users WHERE username = :username");
+$query = $conn->prepare("SELECT * FROM Users WHERE Username = :username");
 $query->bindParam(':username', $user);
 $query->execute();
 
@@ -42,7 +33,7 @@ echo "Username not found in the database.";
 <body>
 <h1 class="Title">Reset Password</h1>
 <div class="wrapper"
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?><!--" method="post"" method="post">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" >
     <p>Please enter your username:</p>
     <label for="username">Username:</label>
     <input type="text" name="username" id="username">
