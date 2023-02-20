@@ -23,44 +23,44 @@ DROP TABLE IF EXISTS `System Loot`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `System Loot` (
-  `id` int(3) NOT NULL,
-  `Hostname` varchar(50) NOT NULL,
-  `OSname` varchar(50) NOT NULL,
-  `OSversion` varchar(50) NOT NULL,
-  `OSmanufacturer` varchar(50) NOT NULL,
-  `OSconfiguration` varchar(50) NOT NULL,
-  `OSbuildtype` varchar(50) NOT NULL,
-  `RegisteredOwner` varchar(50) NOT NULL,
-  `RegisteredOrganization` varchar(60) NOT NULL,
-  `ProductID` varchar(23) NOT NULL,
-  `OriginalInstallDate` datetime NOT NULL,
-  `SystemBootTime` datetime NOT NULL,
-  `SystemManufacturer` varchar(50) NOT NULL,
-  `SystemModel` varchar(50) NOT NULL,
-  `SystemType` varchar(50) NOT NULL,
-  `Processor(s)` json NOT NULL,
-  `BiosVersion` varchar(100) NOT NULL,
-  `WindowsDirectory` varchar(50) NOT NULL,
-  `SystemDirectory` varchar(50) NOT NULL,
-  `BootDevice` varchar(50) NOT NULL,
-  `SystemLocale` varchar(50) NOT NULL,
-  `InputLocale` varchar(50) NOT NULL,
-  `TimeZone` varchar(50) NOT NULL,
-  `TotalPhysicalMemory` varchar(50) NOT NULL,
-  `AvailablePhysicalMemory` varchar(50) NOT NULL,
-  `VirtualMemoryMaxSize` varchar(50) NOT NULL,
-  `VirtualMemoryAvailable` varchar(50) NOT NULL,
-  `VirtualMemoryInUse` varchar(50) NOT NULL,
-  `PageFileLocation(s)` varchar(100) NOT NULL,
-  `Domain` varchar(50) NOT NULL,
-  `LogOnServer` varchar(50) NOT NULL,
-  `Hotfix(s)` json NOT NULL,
-  `NetworkCard(s)` json NOT NULL,
-  `HyperVRequirements` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
-  UNIQUE KEY `Host Name` (`Hostname`),
-  UNIQUE KEY `ProductID` (`ProductID`)
+                               `id` int(3) NOT NULL,
+                               `Hostname` varchar(50) NOT NULL,
+                               `OSname` varchar(50) NOT NULL,
+                               `OSversion` varchar(50) NOT NULL,
+                               `OSmanufacturer` varchar(50) NOT NULL,
+                               `OSconfiguration` varchar(50) NOT NULL,
+                               `OSbuildtype` varchar(50) NOT NULL,
+                               `RegisteredOwner` varchar(50) NOT NULL,
+                               `RegisteredOrganization` varchar(60) NOT NULL,
+                               `ProductID` varchar(23) NOT NULL,
+                               `OriginalInstallDate` datetime NOT NULL,
+                               `SystemBootTime` datetime NOT NULL,
+                               `SystemManufacturer` varchar(50) NOT NULL,
+                               `SystemModel` varchar(50) NOT NULL,
+                               `SystemType` varchar(50) NOT NULL,
+                               `Processor(s)` json NOT NULL,
+                               `BiosVersion` varchar(100) NOT NULL,
+                               `WindowsDirectory` varchar(50) NOT NULL,
+                               `SystemDirectory` varchar(50) NOT NULL,
+                               `BootDevice` varchar(50) NOT NULL,
+                               `SystemLocale` varchar(50) NOT NULL,
+                               `InputLocale` varchar(50) NOT NULL,
+                               `TimeZone` varchar(50) NOT NULL,
+                               `TotalPhysicalMemory` varchar(50) NOT NULL,
+                               `AvailablePhysicalMemory` varchar(50) NOT NULL,
+                               `VirtualMemoryMaxSize` varchar(50) NOT NULL,
+                               `VirtualMemoryAvailable` varchar(50) NOT NULL,
+                               `VirtualMemoryInUse` varchar(50) NOT NULL,
+                               `PageFileLocation(s)` varchar(100) NOT NULL,
+                               `Domain` varchar(50) NOT NULL,
+                               `LogOnServer` varchar(50) NOT NULL,
+                               `Hotfix(s)` json NOT NULL,
+                               `NetworkCard(s)` json NOT NULL,
+                               `HyperVRequirements` varchar(100) NOT NULL,
+                               PRIMARY KEY (`id`),
+                               UNIQUE KEY `id` (`id`),
+                               UNIQUE KEY `Host Name` (`Hostname`),
+                               UNIQUE KEY `ProductID` (`ProductID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -82,12 +82,15 @@ DROP TABLE IF EXISTS `Users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Users` (
-  `U_id` int(3) NOT NULL AUTO_INCREMENT,
-  `Username` varchar(30) NOT NULL,
-  `Password` varchar(100) NOT NULL,
-  UNIQUE KEY `U_id` (`U_id`),
-  UNIQUE KEY `Username` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+                         `U_id` int(3) NOT NULL AUTO_INCREMENT,
+                         `Email` varchar(60) NOT NULL,
+                         `Password` varchar(100) NOT NULL,
+                         `verification_code` varchar(100) NOT NULL,
+                         `status` varchar(10) NOT NULL,
+                         UNIQUE KEY `U_id` (`U_id`),
+                         UNIQUE KEY `Email Users_Email_uindex` (`Email`),
+                         UNIQUE KEY `Email` (`Email`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +99,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (1,'bfuoco','$2y$10$aTi7x0/7E..ktRiu.M76WuBCraDV2hENP0A087UlPpXxp1EwY.Ce2');
+INSERT INTO `Users` VALUES (1,'bfuoco','$2y$10$aTi7x0/7E..ktRiu.M76WuBCraDV2hENP0A087UlPpXxp1EwY.Ce2','',''),(2,'test1','$2y$10$r2AHOoMz1t/GaRaFBbVeyukuenmbmKx04/J5U79sso5zxuiAdLNJu','',''),(3,'bfuoco70@gmail.com','$2y$10$8QgKph7s2R4TRLG3g//bOut4xshbJ1UAF.J09Sa8O.6eAKvwUFp5a','',''),(4,'brnjimustang1@gmail.com','$2y$10$wFzJDIJgbXwshOn6MHVXw.6IB2rDY7qDU2LVjagT277yI4T3smrTu','f95b4a9e3ac85630e2f4e2949396e8ab','');
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -109,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-13 16:01:20
+-- Dump completed on 2023-02-20 12:52:56

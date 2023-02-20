@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before updating the database
     if(empty($new_password_err) && empty($confirm_password_err)){
         // Prepare an update statement
-        $sql = "UPDATE users SET password = :password WHERE id = :id";
+        $sql = "UPDATE Users SET Password = :password WHERE U_id = :id";
 
         if($stmt = $pdo->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -94,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Submit">
-            <a class="btn btn-link ml-2" href="welcome.php">Cancel</a>
+            <a class="btn btn-link ml-2" href="home.php">Cancel</a>
         </div>
     </form>
 </div>

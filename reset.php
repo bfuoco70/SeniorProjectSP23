@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
 $user = $_POST['username'];
 
 // Check if the username exists in the database
-$query = $conn->prepare("SELECT * FROM Users WHERE Username = :username");
+$query = $conn->prepare("SELECT * FROM Users WHERE Email = :username");
 $query->bindParam(':username', $user);
 $query->execute();
 
@@ -34,9 +34,9 @@ echo "Username not found in the database.";
 <h1 class="Title">Reset Password</h1>
 <div class="wrapper"
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" >
-    <p>Please enter your username:</p>
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username">
+    <p>Please enter your Email:</p>
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="email">
     <input type="submit" name="submit" value="Submit" id="submit">
 </form>
 </body>
