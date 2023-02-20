@@ -27,22 +27,22 @@
       4. Start an injection(allows the user to start an injection of their choosing based on the allotted hacks)
       5. About(Explains the application/Can add creators section too)
    
-3.2 Profile
+4.2 Profile
    1. displays username, password, U_ID, if they are an admin, bio section and number of injections they have executed
    2. Can add a profile image(not sure how to do this)
 
-3.3 Previous runs
+4.3 Previous runs
    1. Here the user can click on a injection they have executed from a log and view data that was collected in the
    selected log
 
-3.4 Start an Injection
+4.4 Start an Injection
    1. User can select which type of hack they want to do and through that the hack begins(again not sure how this will be
 done)
    2. hacks will show up as buttons
 
-3.5 About
+4.5 About
    1.  we can have subsections in the nave bar where we can add a paragraph about the application, 
    how to use the application and about the creators(US)
 
 
-Add more!
+Add more!!
