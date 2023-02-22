@@ -1,15 +1,17 @@
 <?php
 
+
 session_start();
+require_once "Database.php";
 $pdo = getDB();
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-header("location: login.php");
+header("location: Login.php.out");
 exit;
 }
 ?>
 
-!<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

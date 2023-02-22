@@ -4,34 +4,34 @@ require_once "Database.php";
 $pdo=getDB();
 
 // Define variables and initialize with empty values
-$email = $password = $confirm_password = "";
-$email_err = $password_err = $confirm_password_err = "";
+$username = $password = $confirm_password = "";
+$username_err = $password_err = $confirm_password_err = "";
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate username
-    if(empty(trim($_POST["email"]))){
-        $email_err = "Please enter a Email.";
-    } elseif(!preg_match('/^\\S+@\\S+\\.\\S+$/', trim($_POST["email"]))){
-        $email_err = "Email can only contain letters, numbers, and underscores.";
+    if(empty(trim($_POST["username"]))){
+        $username_err = "Please enter a username.";
+    } elseif(!preg_match('/^\\S+@\\S+\\.\\S+$/', trim($_POST["username"]))){
+        $username_err = "Username can only contain letters, numbers, and underscores.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT U_id FROM Users WHERE Email = :email";
+        $sql = "SELECT U_id FROM Users WHERE Username = :username";
 
         if($stmt = $pdo->prepare($sql)){
             // Bind variables to the prepared statement as parameters
-            $param_email = trim($_POST["email"]);
-            $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
+            $param_username = trim($_POST["username"]);
+            $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
 
             // Set parameters
 
             // Attempt to execute the prepared statement
             if($stmt->execute()){
                 if($stmt->rowCount() == 1){
-                    $email_err = "This email is already be used.";
+                    $username_err = "This username is already taken.";
                 } else{
-                    $email = trim($_POST["email"]);
+                    $username = trim($_POST["username"]);
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -62,28 +62,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Check input errors before inserting in database
-    if(empty($email_err) && empty($password_err) && empty($confirm_password_err)){
+    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
 
         // Prepare an insert statement
-        $sql = "INSERT INTO Users (Email, Password, verification_code) VALUES (:email, :password, :verification_code)";
+        $sql = "INSERT INTO Users (Username, Password) VALUES (:username, :password)";
 
         if($stmt = $pdo->prepare($sql)){
             // Bind variables to the prepared statement as parameters
             // Set parameters
-            $param_email = $email;
+            $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            $verification_code = md5(uniqid(rand(), true));
 
-            $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
+            $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
             $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
-            $stmt->bindParam(':verification_code', $verification_code, PDO::PARAM_STR);
 
 
 
             // Attempt to execute the prepared statement
             if($stmt->execute()){
                 // Redirect to login page
-                header("location: login.php");
+                header("location: Login.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
@@ -117,9 +115,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <p>Please fill this form to create an account.</p>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group">
-            <label>Email</label>
-            <input type="text" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
-            <span class="invalid-feedback"><?php echo $email_err; ?></span>
+            <label>Username</label>
+            <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+            <span class="invalid-feedback"><?php echo $username_err; ?></span>
         </div>
         <div class="form-group">
             <label>Password</label>
