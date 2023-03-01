@@ -2,6 +2,7 @@
 require_once "Database.php";
 session_start();
 $conn=getDB();
+$message="";
 //var_dump($_POST);
 // Check if the form has been submitted
 if (isset($_POST['submit'])) {
@@ -19,25 +20,30 @@ if (isset($_POST['submit'])) {
         header("Location: resetPassword.php");
         exit;
     } else {
-        $message ="Username not found in the database.";
+        $message = "Username not found in the database.";
     }
 }
 
 ?>
-
 <html>
 <head>
-
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css%22%3E
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css%22%3E">
     <title class="Title">Reset Password</title>
 </head>
 <body>
 <h1 class="Title">Reset Password</h1>
 <div class="wrapper">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" >
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <p>Please enter your Email:</p>
-        <p><?= $message ?></p>
+        <p>
+            <?php
+            if($message)
+            {
+                echo $message;
+            }
+            ?>
+        </p>
         <label for="email">Email:</label>
         <input type="text" name="username" id="email">
         <input type="submit" name="submit" value="Submit" id="submit">
