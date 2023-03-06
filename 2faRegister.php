@@ -1,9 +1,15 @@
 <?php
-
+session_start();
 use RobThree\Auth\TwoFactorAuth;
 
 require_once __DIR__ . '/vendor/autoload.php';
 require_once 'Database.php';
+
+if(!isset($_SESSION["username"])) {
+    header("location: Register.php");
+    exit;
+}
+var_dump($_SESSION);
 $pdo = getDB();
 
 $tfa = new TwoFactorAuth();
@@ -19,12 +25,11 @@ if(isset($_POST['submit']))
     {
         echo "Success!";
         //write code to update the database
-        $sql = "UPDATE Users SET secret = :secret WHERE U_id = :id";
+        $sql = "UPDATE Users SET secret = :secret WHERE Username = :user";
         if($stmt= $pdo->prepare($sql)){
-//            $param_id = $_SESSION["id"];
-            $param_id = 1;
+            $param_user = $_SESSION['username'];
             $stmt->bindParam(":secret", $pastSecret,PDO::PARAM_STR);
-            $stmt->bindParam(":id", $param_id, PDO::PARAM_INT);
+            $stmt->bindParam(":user", $param_user, PDO::PARAM_STR);
         }
         if($stmt->execute()){
             header("location: login.php");

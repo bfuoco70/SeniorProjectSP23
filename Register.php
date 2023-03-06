@@ -71,6 +71,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Bind variables to the prepared statement as parameters
             // Set parameters
             $param_username = $username;
+            session_start();
+            $_SESSION["username"] = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
 
             $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
@@ -80,6 +82,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Attempt to execute the prepared statement
             if($stmt->execute()){
+
                 // Redirect to login page
                 header("location: Login.php");
             } else{
