@@ -2,7 +2,6 @@
 // Include config file
 require_once "Database.php";
 $pdo=getDB();
-
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
@@ -75,6 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_SESSION["username"] = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
 
+
             $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
             $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
 
@@ -84,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if($stmt->execute()){
 
                 // Redirect to login page
-                header("location: Login.php");
+                header("location: 2faRegister.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
