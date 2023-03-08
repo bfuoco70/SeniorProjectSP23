@@ -1,4 +1,5 @@
 <?php
+require_once("../Database.php");
 $Filename = "../resources/test/loot.txt";
 $lines = file($Filename);
 $data = array();
@@ -36,38 +37,22 @@ for($i=0;$i<count($lines);$i++)
     }
     else if($key=="Network Card(s)")
     {
-        echo "Handling Network Entries...";
+//        echo "Handling Network Entries...";
         $nicArray = array();
         $nicArray[]=trim($tokens[1]);
         $nicEntryLine =1;
         $nextNicLine = trim($lines[$i+$nicEntryLine]);
-        echo "Reading First Nic Line: $nextNicLine";
+//        echo "Reading First Nic Line: $nextNicLine";
         while(strpos($nextNicLine, "Hyper-V")===false)
         {
-            echo "Adding line to array.";
+//            echo "Adding line to array.";
             $nicArray[] = $nextNicLine;
             $nicEntryLine++;
             $nextNicLine = trim($lines[$i+$nicEntryLine]);
-            echo "Next line read: $nextNicLine";
+//            echo "Next line read: $nextNicLine";
         }
         $data[$key] = $nicArray;
         $i+=$nicEntryLine-1;
-//        break;
-//        $nicArray = array();
-//        $nicArray[]=$tokens[1];
-//        $nicCount = (int)$tokens[1];
-//        for($nics=1;$nics<$nicCount;$nics++)
-//        {
-//            $nicSubArry=array(
-//                $lines[$i+$nics],
-//                $lines[$i+$nics+1],
-//                $lines[$i+$nics+2],
-//                $lines[$i+$nics+3],
-//                $lines[$i+$nics+4],
-//                $lines[$i+$nics+5],
-//            );
-//
-//        }
     }
     else{
         if(isset($tokens[1]))
@@ -77,4 +62,26 @@ for($i=0;$i<count($lines);$i++)
         }
     }
 }
-var_dump($data);
+//foreach($data as $key=>$value)
+//{
+//    if(is_array($value))
+//    {
+//        echo "$key =>";
+//        foreach($value as $item)
+//        {
+//            echo "$item\n";
+//        }
+//    }
+//    else{
+//        echo "$key => $value\n";
+//    }
+//
+//}
+
+$pdo = getDB();
+//TODO: Create variables from each item in the $data array
+$OS = $data['OS Name'];
+$query = "Insert into `System Loot` (Hostname, OSname, OSversion, OSmanufacturer, OSconfiguration, OSbuildtype, RegisteredOwner, RegisteredOrganization, ProductID, OriginalInstallDate, SystemBootTime, SystemManufacturer, SystemModel, SystemType, `Processor(s)`, BiosVersion, WindowsDirectory, SystemDirectory, BootDevice, SystemLocale, InputLocale, TimeZone, TotalPhysicalMemory, AvailablePhysicalMemory, VirtualMemoryMaxSize, VirtualMemoryAvailable, VirtualMemoryInUse, `PageFileLocation(s)`, Domain, LogOnServer, `Hotfix(s)`, `NetworkCard(s)`, HyperVRequirements)
+values ($OS,)"; //TODO: Add created variables to values statement
+$stmt=$pdo->prepare($query);
+$stmt->execute();
