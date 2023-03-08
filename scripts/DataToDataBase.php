@@ -1,5 +1,5 @@
 <?php
-$Filename = "loot.txt";
+$Filename = "../resources/test/loot.txt";
 $lines = file($Filename);
 $data = array();
 $dataArrayExperssion = "/\[[0-9][0-9]\]/i";
