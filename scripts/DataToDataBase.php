@@ -1,5 +1,27 @@
 <?php
-require_once("../Database.php");
+define('DB_SERVER', '127.0.0.1');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', 'root');
+define('DB_NAME', 'spdb');
+
+function getMyDB()
+{
+    /* Attempt to connect to MySQL database */
+    try {
+        $pdo = new PDO("mysql:host=" . DB_SERVER . ";port=8889;dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
+        // Set the PDO error mode to exception
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo 'Connection successful';
+        return $pdo;
+    } catch (PDOException $e) {
+        die("ERROR: Could not connect. " . $e->getMessage());
+    }
+
+}
+
+
+
+
 $Filename = "../loot.txt";
 $lines = file($Filename);
 $data = array();
@@ -77,44 +99,49 @@ for($i=0;$i<count($lines);$i++)
 //    }
 //
 //}
-
-$pdo = getDB();
+foreach($data as $key=>$value)
+{
+    echo "$key\n";
+}
+$pdo = getMyDB();
 //TODO: Create variables from each item in the $data array
 
 //Here We make variables to store the values from the loot file and stored into the database
-$HOSTNAME = $data['Hostname'];
-$OSNAME= $data['OSname'];
-$OSVERSION = $data['OSversion'];
-$OSMANUFACTURER = $data['OSmanufacturer'];
-$OSCONFIG = $data['OSconfiguration'];
-$OSBUILDTYPE = $data['OSbuildtype'];
-$REGISTEREDOWNER = $data['RegisteredOwner'];
-$REGISTEREDORG = $data['RegisteredOrganization'];
-$PRODUCTID = $data['ProductID'];
-$ORIGINSTALLDATE = $data['OriginalInstallDate'];
-$SYSTEMBOOTTIME = $data['SystemBootTime'];
-$SYSTEMMANUFACTURER = $data['SystemManufacturer'];
-$SYSTEMMODEL = $data['SystemModel'];
-$SYSTEMTYPE = $data['SystemType'];
-$PROCESSORS = $data['`Processor(s)`'];
-$BIOSVERSION = $data['BiosVersion'];
-$WINDOWSDIR = $data['WindowsDirectory'];
-$SYSTEMDIR = $data['SystemDirectory'];
-$BOOTDEVICE = $data['BootDevice'];
-$SYSTEMLOCALE = $data['SystemLocale'];
-$INPUTLOCALE = $data['InputLocale'];
-$TIMEZONE = $data['TimeZone'];
-$TOTALPHYSMEM = $data['TotalPhysicalMemory'];
-$AVALPHYSICALMEM = $data['AvailablePhysicalMemory'];
-$VIRTUALMEMMAXSIZE = $data['VirtualMemoryMaxSize'];
-$VIRTUALMEMAVAL = $data['VirtualMemoryAvailable'];
-$VIRTUALMEMINUSE = $data['VirtualMemoryInUse'];
-$PAGEFILELOC = $data['`PageFileLocation(s)`'];
+$HOSTNAME = $data['Host Name'];
+$OSNAME= $data['OS Name'];
+$OSVERSION = $data['OS Version'];
+$OSMANUFACTURER = $data['OS Manufacturer'];
+$OSCONFIG = $data['OS Configuration'];
+$OSBUILDTYPE = $data['OS Build Type'];
+$REGISTEREDOWNER = $data['Registered Owner'];
+$REGISTEREDORG = $data['Registered Organization'];
+$PRODUCTID = $data['Product ID'];
+$ORIGINSTALLDATE = $data['Original Install Date'];
+$SYSTEMBOOTTIME = $data['System Boot Time'];
+$SYSTEMMANUFACTURER = $data['System Manufacturer'];
+$SYSTEMMODEL = $data['System Model'];
+$SYSTEMTYPE = $data['System Type'];
+$PROCESSORS = $data['Processor(s)'];
+$BIOSVERSION = $data['BIOS Version'];
+$WINDOWSDIR = $data['Windows Directory'];
+$SYSTEMDIR = $data['System Directory'];
+$BOOTDEVICE = $data['Boot Device'];
+$SYSTEMLOCALE = $data['System Locale'];
+$INPUTLOCALE = $data['Input Locale'];
+$TIMEZONE = $data['Time Zone'];
+$TOTALPHYSMEM = $data['Total Physical Memory'];
+//$AVALPHYSICALMEM = $data['Available Physical Memory'];
+$AVALPHYSICALMEM = "500 potatos";
+$VIRTUALMEMMAXSIZE = $data['Virtual Memory: Max Size'];
+//$VIRTUALMEMAVAL = $data['VirtualMemoryAvailable'];
+$VIRTUALMEMAVAL = "Potato";
+$VIRTUALMEMINUSE = $data['Virtual Memory: In Use'];
+$PAGEFILELOC = $data['Page File Location(s)'];
 $DOMAIN = $data['Domain'];
-$LOGONSERVER = $data['LogOnServer'];
-$HOTFIXES = $data['`Hotfix(s)`'];
-$NETWORKCARDS = $data['`NetworkCard(s)`'];
-$HYPERVREQUIREMENTS = $data['HyperVRequirements'];
+$LOGONSERVER = $data['Logon Server'];
+$HOTFIXES = $data['Hotfix(s)'];
+$NETWORKCARDS = $data['Network Card(s)'];
+$HYPERVREQUIREMENTS = $data['Hyper-V Requirements'];
 
 $query = "Insert into `System Loot` (Hostname, OSname, OSversion, OSmanufacturer, OSconfiguration, OSbuildtype, 
 RegisteredOwner, RegisteredOrganization, ProductID, OriginalInstallDate, SystemBootTime, SystemManufacturer, 
