@@ -3,8 +3,8 @@
 /* Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'spdb_user');
-define('DB_PASSWORD', 'P@ssw0rd1234!');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', 'root');
 define('DB_NAME', 'spdb');
 
 function getDB()

@@ -1,6 +1,6 @@
 <?php
 require_once("../Database.php");
-$Filename = "../resources/test/loot.txt";
+$Filename = "../loot.txt";
 $lines = file($Filename);
 $data = array();
 $dataArrayExperssion = "/\[[0-9][0-9]\]/i";
@@ -80,8 +80,52 @@ for($i=0;$i<count($lines);$i++)
 
 $pdo = getDB();
 //TODO: Create variables from each item in the $data array
-$OS = $data['OS Name'];
-$query = "Insert into `System Loot` (Hostname, OSname, OSversion, OSmanufacturer, OSconfiguration, OSbuildtype, RegisteredOwner, RegisteredOrganization, ProductID, OriginalInstallDate, SystemBootTime, SystemManufacturer, SystemModel, SystemType, `Processor(s)`, BiosVersion, WindowsDirectory, SystemDirectory, BootDevice, SystemLocale, InputLocale, TimeZone, TotalPhysicalMemory, AvailablePhysicalMemory, VirtualMemoryMaxSize, VirtualMemoryAvailable, VirtualMemoryInUse, `PageFileLocation(s)`, Domain, LogOnServer, `Hotfix(s)`, `NetworkCard(s)`, HyperVRequirements)
-values ($OS,)"; //TODO: Add created variables to values statement
+
+//Here We make variables to store the values from the loot file and stored into the database
+$HOSTNAME = $data['Hostname'];
+$OSNAME= $data['OSname'];
+$OSVERSION = $data['OSversion'];
+$OSMANUFACTURER = $data['OSmanufacturer'];
+$OSCONFIG = $data['OSconfiguration'];
+$OSBUILDTYPE = $data['OSbuildtype'];
+$REGISTEREDOWNER = $data['RegisteredOwner'];
+$REGISTEREDORG = $data['RegisteredOrganization'];
+$PRODUCTID = $data['ProductID'];
+$ORIGINSTALLDATE = $data['OriginalInstallDate'];
+$SYSTEMBOOTTIME = $data['SystemBootTime'];
+$SYSTEMMANUFACTURER = $data['SystemManufacturer'];
+$SYSTEMMODEL = $data['SystemModel'];
+$SYSTEMTYPE = $data['SystemType'];
+$PROCESSORS = $data['`Processor(s)`'];
+$BIOSVERSION = $data['BiosVersion'];
+$WINDOWSDIR = $data['WindowsDirectory'];
+$SYSTEMDIR = $data['SystemDirectory'];
+$BOOTDEVICE = $data['BootDevice'];
+$SYSTEMLOCALE = $data['SystemLocale'];
+$INPUTLOCALE = $data['InputLocale'];
+$TIMEZONE = $data['TimeZone'];
+$TOTALPHYSMEM = $data['TotalPhysicalMemory'];
+$AVALPHYSICALMEM = $data['AvailablePhysicalMemory'];
+$VIRTUALMEMMAXSIZE = $data['VirtualMemoryMaxSize'];
+$VIRTUALMEMAVAL = $data['VirtualMemoryAvailable'];
+$VIRTUALMEMINUSE = $data['VirtualMemoryInUse'];
+$PAGEFILELOC = $data['`PageFileLocation(s)`'];
+$DOMAIN = $data['Domain'];
+$LOGONSERVER = $data['LogOnServer'];
+$HOTFIXES = $data['`Hotfix(s)`'];
+$NETWORKCARDS = $data['`NetworkCard(s)`'];
+$HYPERVREQUIREMENTS = $data['HyperVRequirements'];
+
+$query = "Insert into `System Loot` (Hostname, OSname, OSversion, OSmanufacturer, OSconfiguration, OSbuildtype, 
+RegisteredOwner, RegisteredOrganization, ProductID, OriginalInstallDate, SystemBootTime, SystemManufacturer, 
+SystemModel, SystemType, `Processor(s)`, BiosVersion, WindowsDirectory, SystemDirectory, BootDevice, 
+SystemLocale, InputLocale, TimeZone, TotalPhysicalMemory, AvailablePhysicalMemory, VirtualMemoryMaxSize, 
+VirtualMemoryAvailable, VirtualMemoryInUse, `PageFileLocation(s)`, Domain, 
+LogOnServer, `Hotfix(s)`, `NetworkCard(s)`, HyperVRequirements)
+values ($HOSTNAME, $OSNAME, $OSVERSION, $OSMANUFACTURER, $OSCONFIG, $OSBUILDTYPE, $REGISTEREDOWNER, $REGISTEREDORG, 
+$PRODUCTID, $ORIGINSTALLDATE, $SYSTEMBOOTTIME, $SYSTEMMANUFACTURER, $SYSTEMMODEL, $SYSTEMTYPE, $PROCESSORS,
+$BIOSVERSION, $WINDOWSDIR, $SYSTEMDIR, $BOOTDEVICE, $SYSTEMLOCALE, $INPUTLOCALE, $TIMEZONE, $TOTALPHYSMEM,
+$AVALPHYSICALMEM, $VIRTUALMEMMAXSIZE, $VIRTUALMEMAVAL, $VIRTUALMEMINUSE, $PAGEFILELOC, $DOMAIN, $LOGONSERVER, 
+$HOTFIXES, $NETWORKCARDS, $HYPERVREQUIREMENTS)"; //TODO: Add created variables to values statement
 $stmt=$pdo->prepare($query);
 $stmt->execute();
