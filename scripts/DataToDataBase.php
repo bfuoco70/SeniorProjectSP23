@@ -99,10 +99,11 @@ for($i=0;$i<count($lines);$i++)
 //    }
 //
 //}
-foreach($data as $key=>$value)
-{
-    echo "$key\n";
-}
+//foreach($data as $key=>$value)
+//{
+//    echo "$key\n";
+//}
+var_dump($data);
 $pdo = getMyDB();
 //TODO: Create variables from each item in the $data array
 
@@ -116,12 +117,12 @@ $OSBUILDTYPE = $data['OS Build Type'];
 $REGISTEREDOWNER = $data['Registered Owner'];
 $REGISTEREDORG = $data['Registered Organization'];
 $PRODUCTID = $data['Product ID'];
-$ORIGINSTALLDATE = $data['Original Install Date'];
-$SYSTEMBOOTTIME = $data['System Boot Time'];
+$ORIGINSTALLDATE = strtotime($data['Original Install Date']);
+$SYSTEMBOOTTIME = strtotime($data['System Boot Time']);
 $SYSTEMMANUFACTURER = $data['System Manufacturer'];
 $SYSTEMMODEL = $data['System Model'];
 $SYSTEMTYPE = $data['System Type'];
-$PROCESSORS = $data['Processor(s)'];
+$PROCESSORS = json_encode($data['Processor(s)']); //JSON
 $BIOSVERSION = $data['BIOS Version'];
 $WINDOWSDIR = $data['Windows Directory'];
 $SYSTEMDIR = $data['System Directory'];
@@ -139,20 +140,21 @@ $VIRTUALMEMINUSE = $data['Virtual Memory: In Use'];
 $PAGEFILELOC = $data['Page File Location(s)'];
 $DOMAIN = $data['Domain'];
 $LOGONSERVER = $data['Logon Server'];
-$HOTFIXES = $data['Hotfix(s)'];
-$NETWORKCARDS = $data['Network Card(s)'];
+$HOTFIXES = json_encode($data['Hotfix(s)']);//JSON
+$NETWORKCARDS = json_encode($data['Network Card(s)']); //JSON
 $HYPERVREQUIREMENTS = $data['Hyper-V Requirements'];
 
-$query = "Insert into `System Loot` (Hostname, OSname, OSversion, OSmanufacturer, OSconfiguration, OSbuildtype, 
+$query = "Insert into Loot (Hostname, OSname, OSversion, OSmanufacturer, OSconfiguration, OSbuildtype, 
 RegisteredOwner, RegisteredOrganization, ProductID, OriginalInstallDate, SystemBootTime, SystemManufacturer, 
 SystemModel, SystemType, `Processor(s)`, BiosVersion, WindowsDirectory, SystemDirectory, BootDevice, 
 SystemLocale, InputLocale, TimeZone, TotalPhysicalMemory, AvailablePhysicalMemory, VirtualMemoryMaxSize, 
-VirtualMemoryAvailable, VirtualMemoryInUse, `PageFileLocation(s)`, Domain, 
-LogOnServer, `Hotfix(s)`, `NetworkCard(s)`, HyperVRequirements)
-values ($HOSTNAME, $OSNAME, $OSVERSION, $OSMANUFACTURER, $OSCONFIG, $OSBUILDTYPE, $REGISTEREDOWNER, $REGISTEREDORG, 
-$PRODUCTID, $ORIGINSTALLDATE, $SYSTEMBOOTTIME, $SYSTEMMANUFACTURER, $SYSTEMMODEL, $SYSTEMTYPE, $PROCESSORS,
-$BIOSVERSION, $WINDOWSDIR, $SYSTEMDIR, $BOOTDEVICE, $SYSTEMLOCALE, $INPUTLOCALE, $TIMEZONE, $TOTALPHYSMEM,
-$AVALPHYSICALMEM, $VIRTUALMEMMAXSIZE, $VIRTUALMEMAVAL, $VIRTUALMEMINUSE, $PAGEFILELOC, $DOMAIN, $LOGONSERVER, 
-$HOTFIXES, $NETWORKCARDS, $HYPERVREQUIREMENTS)"; //TODO: Add created variables to values statement
+VirtualMemoryAvailable, VirtualMemoryInUse, `PageFileLocation(s)`, Domain, LogOnServer, `Hotfix(s)`, `NetworkCard(s)`, HyperVRequirements)
+values (:HOSTNAME,:OSNAME,:OSVERSION,:OSMANUFACTURER,:OSCONFIG,:OSBUILDTYPE, :REGISTEREDOWNER, :REGISTEREDORG, 
+:PRODUCTID, :ORIGINSTALLDATE, :SYSTEMBOOTTIME, :SYSTEMMANUFACTURER, :SYSTEMMODEL, :SYSTEMTYPE, :PROCESSORS,
+:BIOSVERSION, :WINDOWSDIR, :SYSTEMDIR, :BOOTDEVICE, :SYSTEMLOCALE, :INPUTLOCALE, :TIMEZONE, :TOTALPHYSMEM,
+:AVALPHYSICALMEM, :VIRTUALMEMMAXSIZE, :VIRTUALMEMAVAL, :VIRTUALMEMINUSE, :PAGEFILELOC, :DOMAIN, :LOGONSERVER, 
+:HOTFIXES, :NETWORKCARDS, :HYPERVREQUIREMENTS)"; //TODO: Add created variables to values statement
+
 $stmt=$pdo->prepare($query);
+$stmt->bindParam(":HOSTNAME", $HOSTNAME);
 $stmt->execute();
