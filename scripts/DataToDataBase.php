@@ -103,7 +103,6 @@ for($i=0;$i<count($lines);$i++)
 //{
 //    echo "$key\n";
 //}
-var_dump($data);
 $pdo = getMyDB();
 //TODO: Create variables from each item in the $data array
 
@@ -156,5 +155,37 @@ values (:HOSTNAME,:OSNAME,:OSVERSION,:OSMANUFACTURER,:OSCONFIG,:OSBUILDTYPE, :RE
 :HOTFIXES, :NETWORKCARDS, :HYPERVREQUIREMENTS)"; //TODO: Add created variables to values statement
 
 $stmt=$pdo->prepare($query);
-$stmt->bindParam(":HOSTNAME", $HOSTNAME);
+$stmt->bindParam(":HOSTNAME", $HOSTNAME,PDO::PARAM_STR);
+$stmt->bindParam(":OSNAME", $OSNAME,PDO::PARAM_STR);
+$stmt->bindParam(":OSVERSION", $OSVERSION,PDO::PARAM_STR);
+$stmt->bindParam(":OSMANUFACTURER", $OSMANUFACTURER,PDO::PARAM_STR);
+$stmt->bindParam(":OSCONFIG", $OSCONFIG,PDO::PARAM_STR);
+$stmt->bindParam(":OSBUILDTYPE", $OSBUILDTYPE,PDO::PARAM_STR);
+$stmt->bindParam(":REGISTEREDOWNER", $REGISTEREDOWNER,PDO::PARAM_STR);
+$stmt->bindParam(":REGISTEREDORG", $REGISTEREDORG,PDO::PARAM_STR);
+$stmt->bindParam(":PRODUCTID", $PRODUCTID,PDO::PARAM_STR);
+$stmt->bindParam(":ORGINSTALLDATE", $ORIGINSTALLDATE,PDO::PARAM_STR);
+$stmt->bindParam(":SYSTEMBOOTTIME", $SYSTEMBOOTTIME,PDO::PARAM_STR);
+$stmt->bindParam(":SYSTEMMANUFACTURER", $SYSTEMMANUFACTURER,PDO::PARAM_STR);
+$stmt->bindParam(":SYSTEMMODEL", $SYSTEMMODEL,PDO::PARAM_STR);
+$stmt->bindParam(":SYSTEMTYPE", $SYSTEMTYPE,PDO::PARAM_STR);
+$stmt->bindParam(":PROCESSORS", $PROCESSORS,PDO::PARAM_STR);
+$stmt->bindParam(":BIOSVERSION", $BIOSVERSION,PDO::PARAM_STR);
+$stmt->bindParam(":WINDOWSDIR", $WINDOWSDIR,PDO::PARAM_STR);
+$stmt->bindParam(":SYSTEMDIR", $SYSTEMDIR,PDO::PARAM_STR);
+$stmt->bindParam(":BOOTDEVICE", $BOOTDEVICE,PDO::PARAM_STR);
+$stmt->bindParam(":SYSTEMLOCALE", $SYSTEMLOCALE,PDO::PARAM_STR);
+$stmt->bindParam(":INPUTLOCALE", $INPUTLOCALE,PDO::PARAM_STR);
+$stmt->bindParam(":TIMEZONE", $TIMEZONE,PDO::PARAM_STR);
+$stmt->bindParam(":TOTALPHYSMEM", $TOTALPHYSMEM,PDO::PARAM_STR);
+$stmt->bindParam(":AVALPHYSICALMEM", $AVALPHYSICALMEM,PDO::PARAM_STR);
+$stmt->bindParam(":VIRTUALMEMMAXSIZE", $VIRTUALMEMMAXSIZE,PDO::PARAM_STR);
+$stmt->bindParam(":VIRTUALMEMAVAL", $VIRTUALMEMAVAL,PDO::PARAM_STR);
+$stmt->bindParam(":VIRTUALMEMINUSE", $VIRTUALMEMINUSE);
+$stmt->bindParam(":PAGEFILELOC", $PAGEFILELOC,PDO::PARAM_STR);
+$stmt->bindParam(":DOMAIN", $DOMAIN,PDO::PARAM_STR);
+$stmt->bindParam(":LOGONSERVER", $LOGONSERVER,PDO::PARAM_STR);
+$stmt->bindParam(":HOTFIXES", $HOTFIXES,PDO::PARAM_STR);
+$stmt->bindParam(":NETWORKCARDS", $NETWORKCARDS,PDO::PARAM_STR);
+$stmt->bindParam(":HYPERVREQUIREMENTS", $HYPERVREQUIREMENTS,PDO::PARAM_STR);
 $stmt->execute();
