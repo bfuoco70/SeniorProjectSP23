@@ -19,18 +19,37 @@ function getMyDB()
 
 }
 
-
-
-
-$Filename = "../loot.txt";
+$Filename = "../resources/test/loot2.txt";
 $lines = file($Filename);
 $data = array();
 $dataArrayExperssion = "/\[[0-9][0-9]\]/i";
 for($i=0;$i<count($lines);$i++)
 {
-//    echo "working on $lines[$i]";
-    $tokens = explode(":  ", $lines[$i]);
-    $key = $tokens[0];
+    echo "working on $lines[$i]";
+    #if line is available physical memory
+//    echo strpos($lines[$i],"Available");
+    if(strpos($lines[$i], "Available"))
+    {
+        echo "Found Avail Phys memory";
+//        $key = "Available Physical Memory";
+//        $ary = explode(": ",$lines[$i]);
+//        $value = $ary[count($ary)-1];
+//        $data[$key] = $value;
+//        continue;
+    }
+    else if(strpos($lines[$i], "Virtual Memory: Available"))
+    {
+        echo "Found virtual mem avail";
+//        $key = "Virtual Memory: Available";
+//        $ary = explode(": ",$lines[$i]);
+//        $value = $ary[count($ary)-1];
+//        $data[$key] = $value;
+//        continue;
+    }
+    else {
+        $tokens = explode(":  ", $lines[$i]);
+        $key = $tokens[0];
+    }
     if($key=="Processor(s)")
     {
         $procarry = array();
@@ -116,8 +135,10 @@ $OSBUILDTYPE = $data['OS Build Type'];
 $REGISTEREDOWNER = $data['Registered Owner'];
 $REGISTEREDORG = $data['Registered Organization'];
 $PRODUCTID = $data['Product ID'];
-$ORIGINSTALLDATE = strtotime($data['Original Install Date']);
-$SYSTEMBOOTTIME = strtotime($data['System Boot Time']);
+$timestamp1 = strtotime($data['Original Install Date']);
+$ORIGINSTALLDATE = date('Y-m-d H:i:s', $timestamp1);
+$timestamp2 = strtotime($data['System Boot Time']);
+$SYSTEMBOOTTIME = date('Y-m-d H:i:s', $timestamp2);
 $SYSTEMMANUFACTURER = $data['System Manufacturer'];
 $SYSTEMMODEL = $data['System Model'];
 $SYSTEMTYPE = $data['System Type'];
@@ -133,7 +154,7 @@ $TOTALPHYSMEM = $data['Total Physical Memory'];
 //$AVALPHYSICALMEM = $data['Available Physical Memory'];
 $AVALPHYSICALMEM = "500 potatos";
 $VIRTUALMEMMAXSIZE = $data['Virtual Memory: Max Size'];
-//$VIRTUALMEMAVAL = $data['VirtualMemoryAvailable'];
+//$VIRTUALMEMAVAL = $data['Virtual Memory: Available'];
 $VIRTUALMEMAVAL = "Potato";
 $VIRTUALMEMINUSE = $data['Virtual Memory: In Use'];
 $PAGEFILELOC = $data['Page File Location(s)'];
@@ -142,7 +163,7 @@ $LOGONSERVER = $data['Logon Server'];
 $HOTFIXES = json_encode($data['Hotfix(s)']);//JSON
 $NETWORKCARDS = json_encode($data['Network Card(s)']); //JSON
 $HYPERVREQUIREMENTS = $data['Hyper-V Requirements'];
-
+var_dump($data);
 $query = "Insert into Loot (Hostname, OSname, OSversion, OSmanufacturer, OSconfiguration, OSbuildtype, 
 RegisteredOwner, RegisteredOrganization, ProductID, OriginalInstallDate, SystemBootTime, SystemManufacturer, 
 SystemModel, SystemType, `Processor(s)`, BiosVersion, WindowsDirectory, SystemDirectory, BootDevice, 
@@ -164,12 +185,12 @@ $stmt->bindParam(":OSBUILDTYPE", $OSBUILDTYPE,PDO::PARAM_STR);
 $stmt->bindParam(":REGISTEREDOWNER", $REGISTEREDOWNER,PDO::PARAM_STR);
 $stmt->bindParam(":REGISTEREDORG", $REGISTEREDORG,PDO::PARAM_STR);
 $stmt->bindParam(":PRODUCTID", $PRODUCTID,PDO::PARAM_STR);
-$stmt->bindParam(":ORGINSTALLDATE", $ORIGINSTALLDATE,PDO::PARAM_STR);
-$stmt->bindParam(":SYSTEMBOOTTIME", $SYSTEMBOOTTIME,PDO::PARAM_STR);
+$stmt->bindParam(":ORIGINSTALLDATE", $ORIGINSTALLDATE);
+$stmt->bindParam(":SYSTEMBOOTTIME", $SYSTEMBOOTTIME,);
 $stmt->bindParam(":SYSTEMMANUFACTURER", $SYSTEMMANUFACTURER,PDO::PARAM_STR);
 $stmt->bindParam(":SYSTEMMODEL", $SYSTEMMODEL,PDO::PARAM_STR);
 $stmt->bindParam(":SYSTEMTYPE", $SYSTEMTYPE,PDO::PARAM_STR);
-$stmt->bindParam(":PROCESSORS", $PROCESSORS,PDO::PARAM_STR);
+$stmt->bindParam(":PROCESSORS", $PROCESSORS,);
 $stmt->bindParam(":BIOSVERSION", $BIOSVERSION,PDO::PARAM_STR);
 $stmt->bindParam(":WINDOWSDIR", $WINDOWSDIR,PDO::PARAM_STR);
 $stmt->bindParam(":SYSTEMDIR", $SYSTEMDIR,PDO::PARAM_STR);
@@ -185,7 +206,7 @@ $stmt->bindParam(":VIRTUALMEMINUSE", $VIRTUALMEMINUSE);
 $stmt->bindParam(":PAGEFILELOC", $PAGEFILELOC,PDO::PARAM_STR);
 $stmt->bindParam(":DOMAIN", $DOMAIN,PDO::PARAM_STR);
 $stmt->bindParam(":LOGONSERVER", $LOGONSERVER,PDO::PARAM_STR);
-$stmt->bindParam(":HOTFIXES", $HOTFIXES,PDO::PARAM_STR);
-$stmt->bindParam(":NETWORKCARDS", $NETWORKCARDS,PDO::PARAM_STR);
+$stmt->bindParam(":HOTFIXES", $HOTFIXES);
+$stmt->bindParam(":NETWORKCARDS", $NETWORKCARDS);
 $stmt->bindParam(":HYPERVREQUIREMENTS", $HYPERVREQUIREMENTS,PDO::PARAM_STR);
 $stmt->execute();

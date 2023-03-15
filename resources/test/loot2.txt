@@ -1,0 +1,73 @@
+
+Host Name:                 WINTERHOME
+OS Name:                   Microsoft Windows 11 Pro
+OS Version:                10.0.22621 N/A Build 22621
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Registered Owner:          george.salayka@gmail.com
+Registered Organization:   
+Product ID:                00330-80000-00000-AA090
+Original Install Date:     10/25/2022, 2:38:11 PM
+System Boot Time:          3/15/2023, 11:56:01 AM
+System Manufacturer:       Default string
+System Model:              X670E Taichi
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+                           [01]: AMD64 Family 25 Model 97 Stepping 2 AuthenticAMD ~4501 Mhz
+BIOS Version:              American Megatrends International, LLC. 1.04, 9/6/2022
+Windows Directory:         C:\WINDOWS
+System Directory:          C:\WINDOWS\system32
+Boot Device:               \Device\HarddiskVolume5
+System Locale:             en-us;English (United States)
+Input Locale:              en-us;English (United States)
+Time Zone:                 (UTC-05:00) Eastern Time (US & Canada)
+Total Physical Memory:     31,865 MB
+Available Physical Memory: 21,155 MB
+Virtual Memory: Max Size:  40,569 MB
+Virtual Memory: Available: 23,144 MB
+Virtual Memory: In Use:    17,425 MB
+Page File Location(s):     C:\pagefile.sys
+Domain:                    WORKGROUP
+Logon Server:              \\WINTERHOME
+Hotfix(s):                 5 Hotfix(s) Installed.
+                           [01]: KB5022497
+                           [02]: KB5012170
+                           [03]: KB5023706
+                           [04]: KB5022610
+                           [05]: KB5022948
+Network Card(s):           6 NIC(s) Installed.
+                           [01]: Killer E3100G 2.5 Gigabit Ethernet Controller
+                                 Connection Name: Ethernet 2
+                                 DHCP Enabled:    Yes
+                                 DHCP Server:     172.16.1.1
+                                 IP address(es)
+                                 [01]: 172.16.1.35
+                                 [02]: fe80::b626:5e03:be1d:e3d0
+                                 [03]: fdee:7ea6:e31a:6dd9:b507:aa33:dbcf:be58
+                                 [04]: fdee:7ea6:e31a:6dd9:283e:be26:5ab8:fc36
+                           [02]: Killer(R) Wi-Fi 6E AX1675x 160MHz Wireless Network Adapter (210NGW)
+                                 Connection Name: Wi-Fi 2
+                                 Status:          Media disconnected
+                           [03]: VMware Virtual Ethernet Adapter for VMnet1
+                                 Connection Name: VMware Network Adapter VMnet1
+                                 DHCP Enabled:    No
+                                 IP address(es)
+                                 [01]: 192.168.242.1
+                                 [02]: fe80::4312:c817:ea78:484f
+                           [04]: VMware Virtual Ethernet Adapter for VMnet8
+                                 Connection Name: VMware Network Adapter VMnet8
+                                 DHCP Enabled:    No
+                                 IP address(es)
+                                 [01]: 192.168.147.1
+                                 [02]: fe80::c845:6547:5a9d:8225
+                           [05]: Bluetooth Device (Personal Area Network)
+                                 Connection Name: Bluetooth Network Connection 2
+                                 Status:          Media disconnected
+                           [06]: VirtualBox Host-Only Ethernet Adapter
+                                 Connection Name: Ethernet 3
+                                 DHCP Enabled:    No
+                                 IP address(es)
+                                 [01]: 192.168.56.1
+                                 [02]: fe80::d7bd:332e:e722:9e16
+Hyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed.
