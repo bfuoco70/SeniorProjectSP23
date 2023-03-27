@@ -25,26 +25,29 @@ $data = array();
 $dataArrayExperssion = "/\[[0-9][0-9]\]/i";
 for($i=0;$i<count($lines);$i++)
 {
-    echo "working on $lines[$i]";
+    $line = $lines[$i];
+//    echo "working on $line";
     #if line is available physical memory
-//    echo strpos($lines[$i],"Available");
-    if(strpos($lines[$i], "Available"))
+    $availablePhysicalMemory= strpos($line, "Available Physical Memory");
+    $VirtualMemoryAvail=strpos($line, "Virtual Memory: Available:");
+//    echo $itemPos;
+    if($availablePhysicalMemory !== false)
     {
-        echo "Found Avail Phys memory";
-//        $key = "Available Physical Memory";
-//        $ary = explode(": ",$lines[$i]);
-//        $value = $ary[count($ary)-1];
-//        $data[$key] = $value;
-//        continue;
+        echo "Found Avail Phys memory\n";
+        $key = "Available Physical Memory";
+        $ary = explode(": ",$lines[$i]);
+        $value = $ary[count($ary)-1];
+        $data[$key] = $value;
+        continue;
     }
-    else if(strpos($lines[$i], "Virtual Memory: Available"))
+    else if($VirtualMemoryAvail !== false)
     {
-        echo "Found virtual mem avail";
-//        $key = "Virtual Memory: Available";
-//        $ary = explode(": ",$lines[$i]);
-//        $value = $ary[count($ary)-1];
-//        $data[$key] = $value;
-//        continue;
+        echo "Found virtual mem avail\n";
+        $key = "Virtual Memory: Available";
+        $ary = explode(": ",$lines[$i]);
+        $value = $ary[count($ary)-1];
+        $data[$key] = $value;
+        continue;
     }
     else {
         $tokens = explode(":  ", $lines[$i]);
@@ -123,7 +126,6 @@ for($i=0;$i<count($lines);$i++)
 //    echo "$key\n";
 //}
 $pdo = getMyDB();
-//TODO: Create variables from each item in the $data array
 
 //Here We make variables to store the values from the loot file and stored into the database
 $HOSTNAME = $data['Host Name'];
@@ -151,11 +153,11 @@ $SYSTEMLOCALE = $data['System Locale'];
 $INPUTLOCALE = $data['Input Locale'];
 $TIMEZONE = $data['Time Zone'];
 $TOTALPHYSMEM = $data['Total Physical Memory'];
-//$AVALPHYSICALMEM = $data['Available Physical Memory'];
-$AVALPHYSICALMEM = "500 potatos";
+$AVALPHYSICALMEM = $data['Available Physical Memory'];
+//$AVALPHYSICALMEM = "500 potatos";
 $VIRTUALMEMMAXSIZE = $data['Virtual Memory: Max Size'];
-//$VIRTUALMEMAVAL = $data['Virtual Memory: Available'];
-$VIRTUALMEMAVAL = "Potato";
+$VIRTUALMEMAVAL = $data['Virtual Memory: Available'];
+//$VIRTUALMEMAVAL = "Potato";
 $VIRTUALMEMINUSE = $data['Virtual Memory: In Use'];
 $PAGEFILELOC = $data['Page File Location(s)'];
 $DOMAIN = $data['Domain'];
@@ -163,7 +165,7 @@ $LOGONSERVER = $data['Logon Server'];
 $HOTFIXES = json_encode($data['Hotfix(s)']);//JSON
 $NETWORKCARDS = json_encode($data['Network Card(s)']); //JSON
 $HYPERVREQUIREMENTS = $data['Hyper-V Requirements'];
-var_dump($data);
+//var_dump($data);
 $query = "Insert into Loot (Hostname, OSname, OSversion, OSmanufacturer, OSconfiguration, OSbuildtype, 
 RegisteredOwner, RegisteredOrganization, ProductID, OriginalInstallDate, SystemBootTime, SystemManufacturer, 
 SystemModel, SystemType, `Processor(s)`, BiosVersion, WindowsDirectory, SystemDirectory, BootDevice, 
