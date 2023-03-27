@@ -9,7 +9,6 @@ if(!isset($_SESSION["username"])) {
     header("location: Register.php");
     exit;
 }
-var_dump($_SESSION);
 $pdo = getDB();
 
 $tfa = new TwoFactorAuth();
