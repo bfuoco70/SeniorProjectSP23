@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 session_start();
@@ -20,12 +20,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
     <link rel="stylesheet" href="profile.css">
-    <script type="text/javascript">
-        var win_app = new ActiveXObject("WScript.shell");
-        win_app.run("C:\Users\galla\Desktop\discord")
 
-    </script>
 </head>
 
 <nav role="navigation">
@@ -38,25 +35,23 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
         <ul id="menu">
             <header class="nav-logo">
-                <img class="navimage" src="images/code-injection.png">
+                <img class="navimage" src ="images/code-injection.png">
 
             </header>
-            <li><a href="home.php"><i class="fas fa-home"></i><b> Home</b></li>
-            </a>
-            <li><a href="profile.php"><i class="far fa-id-card"></i><b> Profile</b></li>
-            </a>
-            <li><a href="rundata.php"><i class="fas fa-chart-bar"></i><b> Previous Run Data</b></li>
-            </a>
-            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i><b> Logout</b></li>
-            </a>
-            <li><a href="about.php"><i class="fas fa-book"></i><b> About</b></li>
-            </a>
+            <li> <a href="home.php"><i class="fas fa-home"></i><b> Home</b></li></a>
+            <li> <a href="profile.php"><i class="far fa-id-card"></i><b> Profile</b></li></a>
+            <li> <a href="rundata.php"><i class="fas fa-chart-bar"></i><b> Previous Run Data</b></li></a>
+            <li> <a href="logout.php"><i class="fas fa-sign-out-alt"></i><b> Logout</b></li></a>
+            <li> <a href="about.php"><i class="fas fa-book"></i><b> About</b></li></a>
             <footer>
                 <div id="borderbottom">
-                    <img class="navNYIT" src="images/BlackNYITlogo.png">
+                    <img class="navNYIT" src ="images/BlackNYITlogo.png">
                 </div>
             </footer>
         </ul>
+    </div>
+</nav>
+</header>
     </div>
 </nav>
 <body>
@@ -88,7 +83,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </div>
         <div class="w3-card w3-third" style="background-color: aliceblue">
             <p>Hayden</p>
-            <img src="images/defaultavatar_large.png" class="w3-card w3-margin-bottom" alt="Hayden's Photo" style="width:60%">
+            <img src="images/Hayden.png" class="w3-card w3-margin-bottom" alt="Hayden's Photo" style="width:60%">
             <p>Team Leader</p>
         </div>
 
@@ -132,27 +127,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
     <h2 class="w3-wide w3-center">CONTACT</h2>
-    <p class="w3-opacity w3-center"><i>Fan? Drop a note!</i></p>
     <div class="w3-row w3-padding-32">
-        <div class="w3-col m6 w3-large w3-margin-bottom">
-            <i class="fa fa-map-marker" style="width:30px"></i> New York, US<br>
-            <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
-            <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
-        </div>
-        <div class="w3-col m6">
-            <form action="/action_page.php" target="_blank">
-                <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-                    <div class="w3-half">
-                        <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-                    </div>
-                    <div class="w3-half">
-                        <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
-                    </div>
-                </div>
-                <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-                <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
-            </form>
-        </div>
+            <i class="fa fa-map-marker" style="margin-left:285px" ></i> Old Westbury, New York<br>
+            <i class="fa fa-phone" style="margin-left:285px"></i> Phone: (516)-686-7520<br>
+            <i class="fa fa-envelope" style="margin-left:285px"> </i> Email: nyit@nyit.edu<br>
     </div>
 </div>
 
@@ -161,7 +139,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <h3 id="footer"> Footer</h3>
     <p>Supported by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3schools</a></p>
     <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
-        <span class="w3-text w3-theme-light w3-padding">Go To Top</span> 
+        <span class="w3-text w3-theme-light w3-padding">Go To Top</span>
         <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
     <i class="fa fa-chevron-circle-up"></i></span></a>
     </div>
