@@ -11,13 +11,6 @@ body{
 
 }
 
-.profilelist{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-}
 a{
     text-decoration: none;
 }
@@ -133,66 +126,7 @@ a{
     color: black;
 }
 
-.info25{
-    font-size: 25px;
-}
 
-
-#fname {
-    width:300px;
-    height: 50px;
-}
-
-#lname {
-    width:300px;
-    height: 50px;
-}
-
-#Occupation {
-    width:300px;
-    height: 50px;
-}
-
-#Email{
-    width:300px;
-    height: 50px;
-}
-
-#Theme-color{
-    height: 50px;
-}
-#Password {
-    width:300px;
-    height: 50px;
-}
-
-.Biography1{
-    margin-top:-525px;
-    margin-left: 450px;
-}
-#Biography {
-    height: 200px;
-    width: 300px;
-    margin-left: 375px;
-}
-.imagetext{
-    margin-left: 440px;
-    font-size: 20px;
-}
-#fileToUpload{
-    margin-left: 550px;
-}
-
-#chooseimage{
-    margin-left: 350px;
-}
-
-#submitbtn{
-    margin-left: 0px;
-    margin-top: 200px;
-    width: 100px;
-    height: 50px;
-}
 
 .header__wrapper .cols__container .right__col nav ul li:nth-child(1) a{
     color: #1d1d1d;
@@ -273,14 +207,7 @@ a{
     -webkit-user-select: none;
     user-select: none;
 }
-.w3-container-w3-theme-w3-padding {
-    box-sizing: border-box;
-    border-top: 5px solid black;
-    border-bottom: 5px solid black;
-    background: linear-gradient(-45deg, #ad1d32, #ad1d32, #afafad, #afafad,#00DBCE);
-    background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
-}
+
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
@@ -426,8 +353,8 @@ h3{
 #menu
 {
     position: absolute;
-    width: 310px;
-    height: 103vh;
+    width: 350px;
+    height: 105vh;
     margin: -77px 0 0 -70px;
     padding: 50px;
     padding-top: 125px;
@@ -449,7 +376,8 @@ h3{
     font-size: 22px;
     box-sizing: border-box;
     border-top:2px solid black;
-    border-bottom:1px solid black;
+    border-bottom:2px solid black;
+    margin-left: 20px;
 }
 
 /*
@@ -465,18 +393,57 @@ h3{
 .navimage{
     width: 120px;
     margin-bottom: 20px;
-    margin-left: 50px;
+    margin-left: 75px;
 }
 .navNYIT{
-    padding-top: 150px;
+    padding-top: 100px;
     padding-right: 25px;
+    margin-left: 0px;
     width: 275px;
     box-sizing: border-box;
+    padding-bottom: 20px;
 }
 #borderbottom{
     border-bottom: solid black;
     border-bottom-width:20px;
     width:245px;
+    margin-left: 20px;
 }
 
 
+.table{
+    color: black;
+    background-color: #44d1df;
+    border: 2px solid black;
+    font-family: "Tiro Kannada";
+    font-size: 17px;
+    font-weight: bolder;
+
+}
+
+.adminHeader {
+    text-align: center;
+    font-size: 30px;
+    color:black;
+    font-weight: bolder;
+    box-sizing: border-box;
+    padding-top: 20px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab,#00DBCE);
+    background-size: 400% 400%;
+    margin-top: -27px;
+    animation: gradient 10s ease infinite;
+    font-family: "Helvetica Neue";
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

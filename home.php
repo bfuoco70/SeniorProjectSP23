@@ -1,6 +1,5 @@
 <?php
 
-
 session_start();
 require_once "Database.php";
 $pdo = getDB();
@@ -14,7 +13,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <!DOCTYPE html>
 <html>
 <head>
-    <title>W3.CSS Template</title>
+    <title>Welcome to PE injection </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -41,9 +40,18 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 </header>
                 <li> <a href="home.php"><i class="fas fa-home"></i><b> Home</b></li></a>
                 <li> <a href="profile.php"><i class="far fa-id-card"></i><b> Profile</b></li></a>
+                <?php
+                if($_SESSION["is_admin"])
+                {
+                    ?>
+                    <li> <a href="AdminProfiles.php"><i class="far fa-id-card"></i><b> User Profiles</b></li></a>
+                    <?php
+                }
+                ?>
                 <li> <a href="rundata.php"><i class="fas fa-chart-bar"></i><b> Previous Run Data</b></li></a>
                 <li> <a href="logout.php"><i class="fas fa-sign-out-alt"></i><b> Logout</b></li></a>
                 <li> <a href="about.php"><i class="fas fa-book"></i><b> About</b></li></a>
+
                 <footer>
                     <div id="borderbottom">
                         <img class="navNYIT" src ="images/BlackNYITlogo.png">
@@ -55,6 +63,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="w3-center">
         <h4>Safe Data Encryption</h4>
         <h1 class="mainlabel">Senior Project Payload Injection</h1>
+        <?php
+            if($_SESSION["is_admin"])
+        {
+            ?>
+                <p>ADMIN VIEW</p>
+        <?php
+        }
+            ?>
+
         <div class="w3-padding-32">
         <a href="rundata.php">  <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey"  style="font-weight:900;">View Data</button></a>
         </div>

@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT U_id, Username, Password FROM Users WHERE Username = :username";
+        $sql = "SELECT U_id, Username, Password, Is_admin FROM Users WHERE Username = :username";
 
         if($stmt = $pdo->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -53,6 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $id = $row["U_id"];
                         $username = $row["Username"];
                         $hashed_password = $row["Password"];
+                        $admin_status = $row["Is_admin"];
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
                             session_start();
@@ -61,6 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
+                            $_SESSION['is_admin'] = $admin_status;
 
 
                             // Redirect user to welcome page
