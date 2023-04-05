@@ -19,7 +19,7 @@
 -- Table structure for table `Loot`
 --
 
-DROP TABLE IF EXISTS `Loot`;
+-- DROP TABLE IF EXISTS `Loot`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Loot` (
