@@ -8,7 +8,7 @@ body{
     box-sizing: border-box;
     min-height: 100vh;
     font-family: "Poppins", sans-serif;
-    background-color: #23a6d5;
+
 }
 
 a{
@@ -410,81 +410,18 @@ h3{
     margin-left: 20px;
 }
 
-.outer-wrapper {
-    margin: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    border: 1px solid black;
-    border-radius: 4px;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.9);
-    max-width: fit-content;
-    max-height: fit-content;
-    background-color: lightgray;
 
-}
-.table-wrapper {
-
-    overflow-y: scroll;
-    overflow-x: scroll;
-    height: fit-content;
-    max-height: 66.4vh;
-
-    margin-top: 22px;
-
-    margin: 15px;
-    padding-bottom: 20px;
-    background-color: white;
-}
-
-
-table {
-
-    min-width: max-content;
-
-    border-collapse: separate;
-    border-spacing: 0px;
-
-}
-
-
-
-table th{
-    position: sticky;
-    top: 0px;
-
-    background-color: darkred;
-    color:white;
-
-    text-align: center;
-    font-weight: normal;
-    font-size: 18px;
-    outline: 0.7px solid black;
-    border: 1.5px solid black;
-
-}
-
-
-
-table th, table td {
-
-    padding: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-table td {
-    text-align: left;
-
-    font-size: 15px;
-    border: 1px solid rgb(177, 177, 177);
-    padding-left: 20px;
-
-    background-color: white;
+.table{
     color: black;
+    background-color: #44d1df;
+    border: 2px solid black;
+    font-family: "Tiro Kannada";
+    font-size: 17px;
+    font-weight: bolder;
+
 }
 
-
-.RundataHeader {
+.adminHeader {
     text-align: center;
     font-size: 30px;
     color:black;
@@ -509,32 +446,4 @@ table td {
     100% {
         background-position: 0% 50%;
     }
-}
-#myInput {
-    margin-top: 8px;
-    margin-left: 20px;
-    border-radius: 16px;
-    color: black;
-    border: 2px solid black;
-
-}
-
-#footer{
-    font-size: x-large;
-    color:white;
-}
-
-.w3-container-w3-theme-dark-w3-padding-16{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 20%;
-    color:white;
-    background: black;
-    box-sizing: border-box;
-    border:5px solid black;
-    text-align: center;
-    padding-top: 55px;
-    font-size: 20px;
 }
