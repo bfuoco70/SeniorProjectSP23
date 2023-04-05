@@ -19,14 +19,18 @@ body{
     align-items: center;
 }
 a{
-    text-decoration: none;
+text-decoration: none;
 }
 
 .header__wrapper .sub-header{
     width:100%;
     background: url("https://i.pinimg.com/736x/96/06/37/960637285aaad2ced0919b20afc1d505.jpg") no-repeat 50% 20% / cover;
     /*min-height: calc(100px + 15vw);*/
-    height: 200px;
+height: 200px;
+}
+#backgroundprofile{
+    margin: 0;
+    padding-left: 60px;
 }
 .header__wrapper .cols__container .left__col{
     padding: 25px 20px;
@@ -76,13 +80,13 @@ a{
     margin:0;
 }
 .header__wrapper .cols__container .left__col hr{
-    border: 2px solid black;
+ border: 2px solid black;
 }
 
 .header__wrapper .cols__container .left__col .bio{
     justify-content: space-between;
     position: relative;
-    /*  margin: 35px 0;*/
+  /*  margin: 35px 0;*/
 }
 
 .header__wrapper .cols__container .content p{
@@ -137,9 +141,12 @@ a{
     font-size: 25px;
 }
 
+.info76{
+    width: 0;
+}
 
 #fname {
-    width:300px;
+  width:300px;
     height: 50px;
 }
 
@@ -167,16 +174,19 @@ a{
 }
 
 .Biography1{
-    margin-top:-525px;
-    margin-left: 450px;
+    margin-top: -425px;
+margin-left: 450px;
 }
+
 #Biography {
-    height: 200px;
+height: 200px;
     width: 300px;
     margin-left: 375px;
 }
+
 .imagetext{
     margin-left: 440px;
+  /* font-family: */
     font-size: 20px;
 }
 #fileToUpload{
@@ -186,11 +196,14 @@ a{
 #chooseimage{
     margin-left: 350px;
 }
-
+.sub-button{
+    width: 0;
+}
 #submitbtn{
     margin-left: 0px;
-    margin-top: 200px;
-    width: 100px;
+  /*  margin-top: 175px;*/
+    margin-bottom: 200px;
+  width: 100px;
     height: 50px;
 }
 
@@ -202,7 +215,7 @@ a{
 .header__wrapper .cols__container .right__col nav button:hover{
     opacity: 0.8;
 }
-
+/*
 .header__wrapper .cols__container .right__col .photos{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
@@ -215,7 +228,7 @@ a{
     height: 100%;
     object-fit: cover;
 }
-
+*/
 /*Responsiveness*/
 @media (min-width: 868px){
     .header__wrapper .cols__container{
