@@ -21,6 +21,7 @@ $rows = $stmt->fetchAll();
 <!doctype html>
 <html lang="en">
 <head>
+    <title>Admin Profiles Page</title>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
