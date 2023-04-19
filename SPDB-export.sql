@@ -31,7 +31,7 @@ CREATE TABLE `Loot` (
   `OSconfiguration` varchar(50) NOT NULL,
   `OSbuildtype` varchar(50) NOT NULL,
   `RegisteredOwner` varchar(50) NOT NULL,
-  `RegisteredOrganization` varchar(60) NOT NULL,
+  `RegisteredOrganization` varchar(60) DEFAULT 'NONE',
   `ProductID` varchar(23) NOT NULL,
   `OriginalInstallDate` datetime NOT NULL,
   `SystemBootTime` datetime NOT NULL,

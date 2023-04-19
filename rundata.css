@@ -354,7 +354,7 @@ h3{
 {
     position: absolute;
     width: 350px;
-    height: 105vh;
+    height: 125vh;
     margin: -77px 0 0 -70px;
     padding: 50px;
     padding-top: 125px;
@@ -407,7 +407,7 @@ h3{
     border-bottom: solid black;
     border-bottom-width:20px;
     width:245px;
-    margin-left: 20px;
+    margin-left: 5px;
 }
 
 .outer-wrapper {

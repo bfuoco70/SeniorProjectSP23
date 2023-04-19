@@ -85,7 +85,7 @@ $userData = $stmt2->fetch();
 <div class="cols__container" id="backgroundprofile" style="background-color:<?= $userData["BackgroundColor"] ?>">
 <div class="left__col" >
     <div class="img__container">
-        <img class="profile_pics" src="images/MichaelSunset.JPG" alt="Michael Gordon"/>
+        <img class="profile_pics" src="images/NYIT.png" alt="NYIT logo"/>
         <span></span>
     </div>
     <h2> <?= $userData["FirstName"] ?>  <?= $userData["LastName"] ?></h2>
