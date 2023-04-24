@@ -102,8 +102,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <div class="w3-third w3-margin-bottom">
                 <div class="w3-container w3-white">
                     <p><b>Download</b></p>
-                    <p>First obtain the Windows PE Injection Tool using the button below.</p>
-                    <a href=""> <button class="w3-button w3-black w3-margin-bottom"> Get Injection Tool </button> </a>
+                    <p>First obtain the Windows PE Injection Tool</p>
                 </div>
             </div>
             <div class="w3-third w3-margin-bottom">

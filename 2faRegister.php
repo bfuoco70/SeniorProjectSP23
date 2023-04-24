@@ -31,7 +31,7 @@ if(isset($_POST['submit']))
             $stmt->bindParam(":user", $param_user, PDO::PARAM_STR);
         }
         if($stmt->execute()){
-            header("location: login.php");
+            header("location: Login.php");
         }
     }
     else

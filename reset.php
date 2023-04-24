@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
     } else {
         $message = "Username not found in the database.";
     }
-}ssword
+}
 
 ?>
 <html>

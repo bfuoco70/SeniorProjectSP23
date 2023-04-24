@@ -1,34 +1,34 @@
-
-
 <?php
-define('DB_SERVER', '127.0.0.1');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'root');
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'sp_user');
+define('DB_PASSWORD', 'P@SSW0rd123!');
 define('DB_NAME', 'spdb');
-
 function getMyDB()
 {
     /* Attempt to connect to MySQL database */
-    try {
-        $pdo = new PDO("mysql:host=" . DB_SERVER . ";port=8889;dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
-        // Set the PDO error mode to exception
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo 'Connection successful';
-        return $pdo;
-    } catch (PDOException $e) {
-        die("ERROR: Could not connect. " . $e->getMessage());
-    }
+        /* Attempt to connect to MySQL database */
+        try {
+            $pdo = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
+            // Set the PDO error mode to exception
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $pdo;
+        } catch (PDOException $e) {
+            die("ERROR: Could not connect. " . $e->getMessage());
+        }
 
 }
 
-$Filename = "../resources/test/loot2.txt";
+$Filename = "/home/ben/seniorProject/Loot/LOOT-systeminfo.txt";
+$fileOpen = trim(file_get_contents($Filename));
+file_put_contents($Filename,$fileOpen);
 $lines = file($Filename);
 $data = array();
-$dataArrayExperssion = "/\[[0-9][0-9]\]/i";
+//$dataArrayExperssion = "/\[[0-9][0-9]\]/i";
+var_dump($lines);
 for($i=0;$i<count($lines);$i++)
 {
     $line = $lines[$i];
-//    echo "working on $line";
+//   echo "working on $line";
     #if line is available physical memory
     $availablePhysicalMemory= strpos($line, "Available Physical Memory");
     $VirtualMemoryAvail=strpos($line, "Virtual Memory: Available:");
