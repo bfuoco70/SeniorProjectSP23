@@ -24,7 +24,6 @@ file_put_contents($Filename,$fileOpen);
 $lines = file($Filename);
 $data = array();
 //$dataArrayExperssion = "/\[[0-9][0-9]\]/i";
-var_dump($lines);
 for($i=0;$i<count($lines);$i++)
 {
     $line = $lines[$i];
@@ -35,7 +34,7 @@ for($i=0;$i<count($lines);$i++)
 //    echo $itemPos;
     if($availablePhysicalMemory !== false)
     {
-        echo "Found Avail Phys memory\n";
+        //echo "Found Avail Phys memory\n";
         $key = "Available Physical Memory";
         $ary = explode(": ",$lines[$i]);
         $value = $ary[count($ary)-1];
@@ -44,7 +43,7 @@ for($i=0;$i<count($lines);$i++)
     }
     else if($VirtualMemoryAvail !== false)
     {
-        echo "Found virtual mem avail\n";
+        // echo "Found virtual mem avail\n";
         $key = "Virtual Memory: Available";
         $ary = explode(": ",$lines[$i]);
         $value = $ary[count($ary)-1];
@@ -214,3 +213,4 @@ $stmt->bindParam(":HOTFIXES", $HOTFIXES);
 $stmt->bindParam(":NETWORKCARDS", $NETWORKCARDS);
 $stmt->bindParam(":HYPERVREQUIREMENTS", $HYPERVREQUIREMENTS,PDO::PARAM_STR);
 $stmt->execute();
+echo "Data Transfer Complete";
